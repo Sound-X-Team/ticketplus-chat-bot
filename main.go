@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-chi/chi"
-	"github.com/go-chi/cors"
-	"github.com/joho/godotenv"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/Sound-X-Team/ticketplus-chat-bot/handlers"
+	"github.com/go-chi/chi"
+	"github.com/go-chi/cors"
+	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -34,6 +36,11 @@ func main() {
 		Addr:    ":" + postString,
 	}
 
+	v1Router := chi.NewRouter()
+	v1Router.Get("/healthz", handlers.HanleReadiness)
+
+	// Mount the router
+	router.Mount("/v1", v1Router)
 	fmt.Printf("Server Starting on Port %v", postString)
 	err := srv.ListenAndServe()
 
