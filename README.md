@@ -80,7 +80,7 @@ go build && ./ticketplus-chat-bot
 ```
 By default, the server will start on the port specified in your environment variables (typically 8080), or you can check the logs for confirmation. If no port is set, the server may fall back to a default port like 8080.
 
-To see if the server is waiting for requests, you can run the following command:
+To see if the server is waiting for requests, you can run a healthz check:
 
 ```bash
 curl -X GET http://127.0.0.1:8080/v1/healthz
