@@ -48,6 +48,7 @@ The project uses Go modules to manage its dependencies. To ensure all required p
 
 ```bash
 go mod tidy
+```
 
 
 This will download and install all dependencies required by the project, as specified in the `go.mod` file.
