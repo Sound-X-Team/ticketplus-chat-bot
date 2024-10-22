@@ -34,12 +34,13 @@ If Go is not installed, follow the (official Go installation guide)[https://go.d
 Clone the project repository using Git:
 ```bash
 git clone git@github.com:Sound-X-Team/ticketplus-chat-bot.git
-
+```
 
 Navigate to the project directory:
 
 ```bash
 cd ticketplus-chat-bot
+```
 
 ### Step 2: Install Dependencies
 
