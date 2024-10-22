@@ -27,7 +27,7 @@ Before getting started, ensure that Go (Golang) is installed on your system. You
 ```bash
 go version
 ```
-If Go is not installed, follow the (official Go installation guide)[https://go.dev/doc/install] based on your operating system.
+If Go is not installed, follow the [official Go installation guide](https://go.dev/doc/install) based on your operating system.
 
 ### Step 1: Clone the Repository
 
