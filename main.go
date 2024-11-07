@@ -1,11 +1,13 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 
+	"github.com/Sound-X-Team/ticketplus-chat-bot/chat"
 	"github.com/Sound-X-Team/ticketplus-chat-bot/handlers"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
@@ -21,7 +23,13 @@ func main() {
 	}
 	router := chi.NewRouter()
 
-	// hanlde cors
+	// Initialize chat client
+	apiKey := os.Getenv("GEMINI_API_KEY")
+	ctx := context.Background()
+	client := chat.InitializeClient(ctx, apiKey)
+	chat.StartSession(client, "gemini-1.5-pro")
+
+	// handle cors
 	router.Use(cors.Handler(cors.Options{
 		AllowedOrigins:   []string{"https://*"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
@@ -38,6 +46,7 @@ func main() {
 
 	v1Router := chi.NewRouter()
 	v1Router.Get("/healthz", handlers.HanleReadiness)
+	v1Router.Post("/chat", handlers.HandleChat)
 
 	// Mount the router
 	router.Mount("/v1", v1Router)
