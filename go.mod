@@ -1,6 +1,6 @@
 module github.com/Sound-X-Team/ticketplus-chat-bot
 
-go 1.23.1
+go 1.22
 
 require (
 	github.com/go-chi/chi v1.5.5

@@ -1,0 +1,6 @@
+runtime: go122
+instance_class: F2
+env_variables:
+  BUCKET_NAME: "ticketplus-424503.appspot.com"
+  GEMINI_API_KEY: "AIzaSyDQVnuBuRnyLzAuwLopCl4-t-ohjDiMwBI"
+  PORT: "8080"

@@ -21,10 +21,16 @@ func main() {
 	if postString == "" {
 		log.Fatal("Couldn't find the enviroment vaiable")
 	}
+
+	// Ensure GEMINI_API_KEY is set
+	apiKey := os.Getenv("GEMINI_API_KEY")
+	if apiKey == "" {
+		log.Fatal("GEMINI_API_KEY environment variable not set")
+	}
+
 	router := chi.NewRouter()
 
 	// Initialize chat client
-	apiKey := os.Getenv("GEMINI_API_KEY")
 	ctx := context.Background()
 	client := chat.InitializeClient(ctx, apiKey)
 	chat.StartSession(client, "gemini-1.5-pro")
